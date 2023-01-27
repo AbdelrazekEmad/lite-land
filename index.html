@@ -10,22 +10,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/solid.min.css"
         integrity="sha512-6mc0R607di/biCutMUtU9K7NtNewiGQzrvWX4bWTeqmljZdJrwYvKJtnhgR+Ryvj+NRJ8+NnnCM/biGqMe/iRA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
-        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
     <link rel="stylesheet" href="./owl.carousel.min.css">
     <link rel="stylesheet" href="./owl.theme.default.min.css">
 
     <style>
+        body {
+            scroll-behavior: smooth;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -34,8 +28,8 @@
         }
 
         .free-shipping {
-            background-color: #730d17;
-            padding: 1.5rem 3.25rem;
+            background-color: #E50A21;
+            padding: .75rem 3.25rem;
             border-radius: 20px;
         }
 
@@ -74,24 +68,32 @@
             transform: translateY(-50%);
             right: -15px;
         }
+
+        #checkout {
+            border: 5px solid black;
+            border-style: dotted;
+            border-radius: 15px;
+        }
     </style>
 </head>
 
 <body>
-    <div class="hero bg-dark">
-        <div class="container  d-flex flex-column justify-content-center align-items-center">
-            <div class="free-shipping text-white my-3 fw-bold">الشحن مجاني</div>
+    <section class="hero bg-dark">
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+            <button class="free-shipping my-3 fw-bold"><a class="text-decoration-none text-white" href="#checkout">الشحن
+                    مجاني</a></button>
             <img class="img-fluid" src="./hero-img.webp" alt="hero-img">
             <h1 class="my-5 text-white"> جهاز عارض النجوم الليلي ومكبر صوت</h1>
             <p class="fs-1">ديكور ومكبر صوت مميز بإضاءة النجوم والمجرات، استمتع بالأجواء الرومانسية والموسيقى مع الجهاز.
             </p>
-            <button class="main-btn fw-bold my-4 border-0 fs-4">أشتريها من هنا بخصم كبير</button>
+            <button class="main-btn fw-bold my-4 border-0 fs-4"><a class="text-decoration-none text-dark"
+                    href="#checkout">أشتريها من هنا بخصم كبير</a></button>
         </div>
-    </div>
+    </section>
 
-    <div class="gallary text-white">
-        <div class="container">
-            <h2 class="text-center py-4 fw-bold">ليش جهاز عرض النجوم مره رهييييب؟ 🔥</h2>
+    <section class="gallary text-white">
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+            <h2 class="py-4 fw-bold">ليش جهاز عرض النجوم مره رهييييب؟ 🔥</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col">
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -136,10 +138,63 @@
                     </ul>
                 </div>
             </div>
+            <a href="#checkout"
+                class="text-decoration-none text-dark fw-bold bg-white px-5 py-2 my-4 rounded-3 fs-3">الكمية محدودة جدا
+                يمكنك الطلب قبل النفاذ</a>
         </div>
-    </div>
+    </section>
+
+    <section class="checkout__section py-5">
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+            <button class="free-shipping border-0"><a class="text-decoration-none text-white" href="#checkout">الشحن
+                    مجاني والدفع عند الاستلام</a></button>
+            <h2 class=" fw-bold py-4">السعر 194 ريال شامل الشحن بدلا من 250 ريال</h2>
+            <h3 class=" fw-bold py-4 text-danger">للطلب يرجي ملئ البيانات التالية</h3>
+            <div id="checkout" class="align-self-stretch p-3">
+                <form id="checkout_form" method="POST" autocomplete="off" name="google-sheet">
+                    <div class="mb-3">
+                        <label for="exampleInputName" class="form-label">الأسم بالكامل</label>
+                        <input type="text" class="form-control" id="exampleInputName" required name="username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPhone" class="form-label">رقم الجوال</label>
+                        <input type="number" class="form-control" id="exampleInputPhone" required name="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputAddress" class="form-label">العنوان بالتفصيل</label>
+                        <input type="text" class="form-control" id="exampleInputAddress" required name="address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputoffers" class="form-label">العروض</label>
+                        <select class="form-select" id="exampleInputoffers" aria-label="يرجى أختيار العدد المطلوب"
+                            required name="offers">
+                            <option selected>يرجى أختيار العدد المطلوب</option>
+                            <option value="1">حبة واحدة بسعر 194 ريال</option>
+                            <option value="2">حبتين بسعر 349 ريال (خصم 40 ريال)</option>
+                            <option value="3">ثلاث حبات بسعر 499 ريال (خصم 85 ريال)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success mx-auto">تأكيد الطلب </button>
+                </form>
+            </div>
+        </div>
+    </section>
 
 
+    <script>
+        const scriptURL =
+            "https://script.google.com/macros/s/AKfycbzEY5dfl59nsYy77Kk_OsNxevR9GeAS-MtdXc71K0TgVr3dCrlrjsHkpFvOash6HFRozg/exec";
+        const form = document.forms["google-sheet"];
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            fetch(scriptURL, { method: "POST", body: new FormData(form) })
+                .then((response) =>
+                    alert("Thanks for Contacting us..! We Will Contact You Soon...")
+                )
+                .catch((error) => console.error("Error!", error.message));
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
